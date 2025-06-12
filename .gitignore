@@ -1,0 +1,11 @@
+.idea
+
+# Terraform state
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Sensitive override files
+*.auto.tfvars
+*.tfvars

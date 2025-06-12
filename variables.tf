@@ -7,7 +7,7 @@ variable "bucket_name" {
 }
 
 variable "bucket_tag_name" {
-    default = "test-terraform-state"
+  default = "test-terraform-state"
 }
 
 variable "dynamodb_table_name" {
@@ -25,7 +25,7 @@ variable "aws_account_id" {
 variable "git_actions_policies" {
   description = "List of policies for GithubActionsRole"
   type        = list(string)
-  default     = [
+  default = [
     "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
     "arn:aws:iam::aws:policy/AmazonRoute53FullAccess",
     "arn:aws:iam::aws:policy/AmazonS3FullAccess",

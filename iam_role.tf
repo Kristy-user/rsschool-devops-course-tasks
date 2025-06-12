@@ -46,7 +46,8 @@ resource "aws_iam_role_policy" "dynamodb_locking_policy" {
           "dynamodb:DescribeTable",
           "dynamodb:GetItem",
           "dynamodb:PutItem",
-          "dynamodb:DeleteItem"
+          "dynamodb:DeleteItem",
+          "dynamodb:DescribeContinuousBackups"   # <--- add this permission
         ]
         Resource = "arn:aws:dynamodb:${var.aws_region}:${var.aws_account_id}:table/${var.dynamodb_table_name}"
       }

@@ -33,6 +33,27 @@ resource "aws_iam_role" "github_actions_role" {
   }
 }
 
+resource "aws_iam_role_policy" "dynamodb_locking_policy" {
+  name = "TerraformDynamoDBLockingPolicy"
+  role = aws_iam_role.github_actions_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "dynamodb:DescribeTable",
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem"
+        ]
+        Resource = "arn:aws:dynamodb:${var.aws_region}:${var.aws_account_id}:table/${var.dynamodb_table_name}"
+      }
+    ]
+  })
+}
+
 resource "aws_iam_role_policy_attachment" "policy_attachments" {
   count      = length(var.git_actions_policies)
   role       = aws_iam_role.github_actions_role.name

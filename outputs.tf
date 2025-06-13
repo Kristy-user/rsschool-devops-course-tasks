@@ -1,5 +1,5 @@
 output "s3_bucket" {
-  value = aws_s3_bucket.terraform_state.id
+  value = aws_s3_bucket.rs-example.id
 }
 
 output "dynamodb_table" {

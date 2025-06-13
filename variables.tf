@@ -3,11 +3,11 @@ variable "aws_region" {
 }
 
 variable "bucket_name" {
-  default = "rs-devops-2025q2-terraform-state"
+  default = "rs--aws-example-bucket"
 }
 
 variable "bucket_tag_name" {
-  default = "test-terraform-state"
+  default = "test-terraform-bucket"
 }
 
 variable "dynamodb_table_name" {

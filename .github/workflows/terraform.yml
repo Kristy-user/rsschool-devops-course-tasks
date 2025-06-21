@@ -24,6 +24,7 @@ jobs:
 
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
+        working-directory: networking
 
   terraform-plan:
     name: Terraform Plan
@@ -45,9 +46,11 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: networking
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: networking
 
   terraform-apply:
     name: Terraform Apply
@@ -70,6 +73,8 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: networking
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: networking

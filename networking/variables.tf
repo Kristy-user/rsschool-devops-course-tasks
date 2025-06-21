@@ -7,13 +7,13 @@ variable "aws_region" {
 variable "ssh_key_name" {
   description = "Name of the SSH key pair"
   type        = string
-  default = "ec2-rss"
+  default     = "ec2-rss"
 }
 
 variable "my_ip" {
   description = "Your IP address to allow SSH (format: x.x.x.x/32)"
   type        = string
-  default = "188.212.135.156/32"
+  default     = "188.212.135.156/32"
 }
 
 variable "public_subnet_cidrs" {

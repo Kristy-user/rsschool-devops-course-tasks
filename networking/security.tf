@@ -1,8 +1,3 @@
-resource "aws_key_pair" "main" {
-  key_name   = "k3s-key"
-  public_key = file("~/.ssh/id_rsa.pub")
-}
-
 resource "aws_security_group" "bastion_sg" {
   name        = "bastion-sg"
   description = "Allow SSH"

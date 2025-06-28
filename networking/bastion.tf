@@ -1,30 +1,3 @@
-# Security Group for Bastion Host
-resource "aws_security_group" "bastion_sg" {
-  name        = "bastion-sg"
-  description = "Allow SSH from specific IP"
-  vpc_id      = aws_vpc.main.id
-
-  ingress {
-    description = "SSH from your IP"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.my_ip]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "bastion-sg"
-  }
-}
-
-# EC2 Bastion Host in Public Subnet
 resource "aws_instance" "bastion" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = "t3.micro"
@@ -37,3 +10,4 @@ resource "aws_instance" "bastion" {
     Name = "bastion-host"
   }
 }
+

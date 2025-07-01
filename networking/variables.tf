@@ -7,13 +7,13 @@ variable "aws_region" {
 variable "ssh_key_name" {
   description = "Name of the SSH key pair"
   type        = string
-  default     = "ec2-rss"
+  default     = "rss-key"
 }
 
 variable "my_ip" {
   description = "Your IP address to allow SSH (format: x.x.x.x/32)"
   type        = string
-  default     = "188.212.135.156/32"
+  default     = "185.246.208.180/32"
 }
 
 variable "public_subnet_cidrs" {
@@ -29,4 +29,10 @@ variable "private_subnet_cidrs" {
 variable "availability_zones" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b"]
+}
+
+variable "vpc_cidr_block" {
+  description = "CIDR block for the VPC"
+  type        = string
+  default     = "10.0.0.0/16"
 }
